@@ -27,6 +27,7 @@ main {
   font-family: ‘Times New Roman’, Times, serif;
 }
 
+/*below is connected to all hyperlinks on the page*/
 a, .navbar-brand {
   font-size:1.3em;  
 }
@@ -68,6 +69,16 @@ a, .navbar-brand {
   padding-top: 3%;
   padding-right: 5%; 
   padding-bottom: 4%;*/
+}
+
+/********** Feedback Form **********/
+#feedback-holder{
+  text-align: center;
+  padding-right:4em;
+}
+
+#feedbackform-title{
+  font-size:5em;
 }
 
 /********** Landing **********/
