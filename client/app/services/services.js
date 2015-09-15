@@ -36,11 +36,18 @@ angular.module('spkr.services', [])
     return !!$window.localStorage.getItem('com.spkr');
   };
 
-  var signout = function () {
-    $window.localStorage.removeItem('com.spkr');
-    $window.localStorage.removeItem('userid');
-    $rootScope.withBackground = true;
-    $location.path('/');
+  var signout = function (user) {
+    return $http({
+      method: 'POST',
+      url: '/api/users/logout',
+      data: user
+    })
+    .then(function() {
+      $window.localStorage.removeItem('com.spkr');
+      $window.localStorage.removeItem('userid');
+      $rootScope.withBackground = true;
+      $location.path('/');
+    });
   };
 
   var getAllData = function(){
