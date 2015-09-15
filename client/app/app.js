@@ -14,10 +14,10 @@ angular.module('spkr', [
 
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
-
+  //fix for signup and signin bug. background controller changed.
     .when('/', {
       templateUrl: 'app/auth/landing.html',
-      controller: 'AuthController'
+      controller: 'BackgroundController'
     })
 
     .when('/login', {
