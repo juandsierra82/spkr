@@ -19,6 +19,7 @@ module.exports = {
             .then(function(foundUser) {
               if (foundUser) {
                 var token = jwt.encode(user, 'secret');
+                req.session.userId = user._id;
                 res.json({token: token, userid: user._id});
               } else {
                 return next(new Error('No user'));
