@@ -32,6 +32,10 @@ module.exports = {
       });
   },
 
+  logout: function (req, res, next) {
+    
+  },
+
   signup: function (req, res, next) {
     var username  = req.body.username,
         password  = req.body.password,
