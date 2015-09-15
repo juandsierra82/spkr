@@ -1,7 +1,10 @@
 var morgan      = require('morgan'), // used for logging incoming request
     bodyParser  = require('body-parser'),
-    helpers     = require('./helpers.js'); // our custom middleware
+    helpers     = require('./helpers.js'), // our custom middleware
     feedbackController = require('../feedback/feedbackController.js');
+
+var cookieSession = require('cookie-session');
+var cookieParser = require('cookie-parser');
 
 
 module.exports = function (app, express) {
@@ -10,8 +13,22 @@ module.exports = function (app, express) {
   var presentationRouter = express.Router();
   var feedbackRouter = express.Router();
 
+  // app.set('trust proxy', 1) // trust first proxy
+
+  app.use(cookieSession({
+    keys:['key1', 'key2']
+  }));
+
+  app.use(cookieParser());
+
   app.use(morgan('dev'));
+  app.use(function(req, res, next) {
+    console.log("Session:", req.session);
+    req.session.voted = false;
+    next();
+  });
   app.use(bodyParser.urlencoded({extended: true}));
+
   app.use(bodyParser.json());
   app.use(express.static(__dirname + '/../../client'));
 
