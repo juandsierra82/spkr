@@ -34,6 +34,7 @@
   "dependencies": {
     "angular": "^1.4.5",
     "angular-route": "^1.4.5",
+    "angular-youtube-embed": "^1.1.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.4.3",
     "chai": "^3.2.0",
