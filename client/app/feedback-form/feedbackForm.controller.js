@@ -31,9 +31,12 @@ angular.module('spkr.feedback-form', ['ngRoute', 'youtube-embed'])
       FeedbackService.submitFeedback(presentation) // inputs may be changed
         .then (function (data) {
           $scope.feedbackSuccess = data.data
+          console.log("Success: ", $scope.feedbackSuccess)
+          
         })
         .catch (function (error) {
-          console.log(error)
+          $scope.feedbackFailure = error.data.error
+          console.log("Failure: ", $scope.feedbackFailure)
         })
     },
 
