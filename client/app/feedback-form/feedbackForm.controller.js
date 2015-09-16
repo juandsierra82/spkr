@@ -48,7 +48,7 @@ angular.module('spkr.feedback-form', ['ngRoute', 'youtube-embed'])
         $scope.youtube = data.youtube;
         //the following is a predefined youtube link for testing purposes:
         // $scope.youtube = 'https://www.youtube.com/watch?v=jSNLvyXmsv4'; //testing
-        if(!$scope.youtube.length) {
+        if(!$scope.youtube) {
           $scope.watched = true; 
         }
       })
