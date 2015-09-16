@@ -12,7 +12,10 @@ angular.module('spkr.presentations', [])
     }, true);
 
     var today = new Date().toISOString().split('T')[0];
-    document.getElementsByName("date")[0].setAttribute('min', today);
+    //date bug fixed; only today and future dates allowed
+    document.getElementById('date').setAttribute('min', today);
+    document.getElementById('expiration').setAttribute('min', today);
+    
 
     $scope.submit = function(presentation){
       Pres.createPresentation(presentation).then(function(data, err){
