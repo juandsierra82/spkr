@@ -15,6 +15,8 @@ module.exports = {
   create: function(req, res, next){
     var title = req.body.title,
         date  = req.body.date,
+        //youtube add in for model variable
+        youtube = req.body.youtube,
         expiration = req.body.expiration,
         inDatabase = false,
         presentationid,
@@ -34,6 +36,8 @@ module.exports = {
             _presenter: _presenter,
             title: title, 
             date: date,
+            //youtube add in for model object
+            youtube: youtube,
             expiration: expiration,
             criteria: ['organization','clarity','volume','posture','preparation','visual aids','connection','questions','overall',]
             };
