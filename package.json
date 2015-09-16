@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha specs/server",
     "start": "node server.js",
-    "postinstall": "./node_modules/.bin/bower install"
+    "postinstall": "./post-install.sh"
   },
   "author": "",
   "license": "ISC",
