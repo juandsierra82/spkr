@@ -15,13 +15,7 @@ var PresentationSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  //schema youtube string
-  
-  youtube: {
-    type: String,
-    required: false
-  },
-  
+
   expiration: {
     type: Date,
     required: true
@@ -30,6 +24,8 @@ var PresentationSchema = new mongoose.Schema({
     type: Array,
     required: true
   },
+
+
   //the feedbacks array will be an array of integers;
   //criteria have been separated to eliminate repetition
   //ie: {organization:100, volume: 100, ...}
@@ -39,6 +35,15 @@ var PresentationSchema = new mongoose.Schema({
   feedbacks: [{type: Schema.Types.ObjectId, ref: 'feedback'}]
 });
 
+//schema youtube add string
+
+PresentationSchema.add({  
+  
+  youtube: {
+    type: String,
+    required: false
+  }
+});
 
 
 module.exports = mongoose.model('presentations', PresentationSchema);

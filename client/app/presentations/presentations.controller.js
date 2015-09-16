@@ -1,5 +1,5 @@
 angular.module('spkr.presentations', [])
-  .controller('PresentationsController', function($scope, $window, $location, Auth, Pres) {
+  .controller('PresentationsController', function ($scope, $window, $location, Auth, Pres) {
     
     $scope.root = window.location.href.slice(0,window.location.href.lastIndexOf('/'));
     
