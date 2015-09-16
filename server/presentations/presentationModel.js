@@ -15,6 +15,13 @@ var PresentationSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  //schema youtube string
+  
+  youtube: {
+    type: String,
+    required: false
+  },
+  
   expiration: {
     type: Date,
     required: true
