@@ -38,9 +38,8 @@ angular.module('spkr.services', [])
 
   var signout = function () {
     return $http({
-      method: 'POST',
+      method: 'GET',
       url: '/api/users/logout',
-      data: user
     })
     .then(function() {
       $window.localStorage.removeItem('com.spkr');
@@ -48,6 +47,7 @@ angular.module('spkr.services', [])
       $rootScope.withBackground = true;
       $location.path('/');
     });
+  }
 
   var getAllData = function(){
     var userid = $window.localStorage.getItem('userid');

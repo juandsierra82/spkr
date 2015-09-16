@@ -21,7 +21,9 @@ module.exports = function (app, express) {
 
   app.use(morgan('dev'));
   app.use(function(req, res, next) {
-    req.session.voted = false;
+    if (!req.session.voted) {
+      req.session.voted = false;
+    }
     next();
   });
   
