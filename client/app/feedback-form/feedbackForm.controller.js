@@ -1,4 +1,4 @@
-angular.module('spkr.feedback-form', ['ngRoute'])
+angular.module('spkr.feedback-form', ['ngRoute', 'youtube-embed'])
   .controller('FeedbackController', function ($scope, $location, $routeParams, FeedbackService, Pres, Auth) {
 
     var presId = $routeParams.id;
@@ -8,8 +8,9 @@ angular.module('spkr.feedback-form', ['ngRoute'])
     $scope.expiration,
     $scope.today,
     $scope.user,
-
-    $scope.presentation= {
+    $scope.youtube,
+    $scope.watched = false,
+    $scope.presentation = {
       // date: 'guest',
       // name: 'guest',
       organization: 50,
@@ -44,13 +45,24 @@ angular.module('spkr.feedback-form', ['ngRoute'])
         $scope.date  = data.date.slice(0,10);
         $scope.today = new Date().toISOString().split('T')[0];
         $scope.expiration = data.expiration.slice(0,10);
+        $scope.youtube = data.youtube;
+        //the following is a predefined youtube link for testing purposes:
+        // $scope.youtube = 'https://www.youtube.com/watch?v=jSNLvyXmsv4'; //testing
+        if(!$scope.youtube) {
+          $scope.watched = true; 
+        }
       })
       .catch(function(error){
         $location.path('/data-profile')
       })
-    }
+    },
+
+    $scope.$on('youtube.player.ended', function($event, player) {
+      $scope.watched = true;
+    })
 
     $scope.getData();
+
   });
 
 

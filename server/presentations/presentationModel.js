@@ -34,4 +34,13 @@ var PresentationSchema = new mongoose.Schema({
 
 PresentationSchema.add({votes: {type: Array, required: false}});
 
+PresentationSchema.add({  
+  
+  youtube: {
+    type: String,
+    required: false
+  }
+});
+
+
 module.exports = mongoose.model('presentations', PresentationSchema);
