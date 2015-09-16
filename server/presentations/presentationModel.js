@@ -32,6 +32,6 @@ var PresentationSchema = new mongoose.Schema({
   feedbacks: [{type: Schema.Types.ObjectId, ref: 'feedback'}]
 });
 
-
+PresentationSchema.add({votes: {type: Array, required: false}});
 
 module.exports = mongoose.model('presentations', PresentationSchema);
