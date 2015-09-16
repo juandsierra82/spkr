@@ -6,7 +6,6 @@ module.exports = function (app) {
   app.post('/login', userController.login);
   app.post('/signup', userController.signup);
   app.get('/logout', userController.checkAuth, userController.logout);
-  app.get('/signedin', userController.checkAuth)
-  app.get('/:id', userController.serveData);
+  app.get('/:id', userController.checkAuth, userController.serveData);
   
 };
