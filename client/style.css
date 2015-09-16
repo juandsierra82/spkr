@@ -3,45 +3,40 @@ body, html {
 	height: 100%;
 	width: 100%;
 	position: absolute;
-	font-family: Ubuntu Helvetica Arial sans-serif;
+	font-family: sans-serif;
 }
 
 h1, h2, h3, h4 {
 	text-align: center;
   color: #555;
 }
+
 header .navbar {
   margin-bottom: 1.0%;
   padding: 0.5% 1.5%;
+  border: none;
+}
+header .navbar a {
+  font-size: 16px;
+}
+
+/*below is connected to all hyperlinks on the page*/
+header nav .navbar-brand {
+  font-size: 20px;  
+}
+
+.navbar a:focus, .navbar-brand:focus {
+  font-weight: bold;
 }
 
 main {
-	min-height: 60%;
+  min-height: 60%;
 }
 /********** Button and Link Styles ***********/
 .btn-link, .btn-link:hover, button.btn-danger .btn-link:hover {
   color: #DE7B59;
 }
-.navbar {
-  background-color: black;
-  font-family: ‘Times New Roman’, Times, serif;
-}
 
-/*below is connected to all hyperlinks on the page*/
-a, .navbar-brand {
-  font-size:1.3em;  
-}
-
-.navbar a:focus, .navbar-brand:focus {
-  color: grey;
-  background-color: white;
-  font-weight: bold;
-}
-
-.navbar a:hover, .navbar-brand:hover{
-  color: grey;
-  background-color: white;
-}
 
 /********** About **********/
 

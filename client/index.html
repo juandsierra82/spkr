@@ -11,7 +11,7 @@
   <body ng-class="{landing: withBackground}">
     <header  class="container-fluid" ng-controller="IndexController">
   <!-- Fix for SignUp on load bug: changed controller to AuthController for the navdiv -->
-      <nav ng-controller="AuthController" ng-if="loggedIn" class='navbar navbar-inverse navbar-fixed-top navbar-custom'>
+      <nav ng-controller="AuthController" ng-if="loggedIn" class='navbar navbar-inverse navbar-fixed-top'>
         <div class="container-fluid">
           <div class="navbar-header"> <!-- Start Navbar Header -->
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -20,15 +20,15 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a href="/#/data-profile" class="navbar-brand" style="font-size:1.7em">SPKR</a>
+            <a href="/#/data-profile" class="navbar-brand">SPKR</a>
           </div> <!-- End Navbar Header -->
           <div class="collapse navbar-collapse navHeaderCollapse">
             <ul class="nav navbar-nav">
               <li><a href='/#/data-profile'>Data Profile</a>
               <li><a href='/#/presentations'>Presentations</a>
-              <li><a href='/#/about'>About</a>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li><a href='/#/about'>About</a>
               <li><a href='/#/logout'><span class="glyphicon glyphicon-log-in"></span> Logout</a>
             </ul>
           </div>
