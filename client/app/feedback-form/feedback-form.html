@@ -16,6 +16,11 @@
       </div>
     </div>
   </div>
+  <div class="row form-meta">
+    <div class="col-md-1 youtube" ng-if="youtube">
+      <youtube-video video-url="youtube"></youtube-video>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <p ng-show="expiration < today" class="alert alert-danger">This form has expired.</p>
@@ -89,7 +94,7 @@
             </div>
           </div>
           <div class="col-xs-8">
-            <button id="feedbackButton" ng-hide="loggedIn || expiration < today" class="btn btn-primary">Submit Feedback</button>
+            <button id="feedbackButton" ng-if="watched || expiration < today" class="btn btn-primary">Submit Feedback</button>
           </div>
           <div class="col-xs-8">
             <div ng-if="feedbackSuccess" class="alert alert-success" role="alert"> {{ feedbackSuccess}} 
