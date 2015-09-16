@@ -9,9 +9,25 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body ng-class="{landing: withBackground}">
+<<<<<<< HEAD
     <header  class="container-fluid" ng-controller="IndexController">
   <!-- Fix for SignUp on load bug: changed controller to AuthController for the navdiv -->
-      <nav ng-controller="AuthController" ng-if="loggedIn" class='navbar navbar-inverse navbar-fixed-top navbar-custom'>
+      <nav ng-controller="AuthController" ng-if="loggedIn" class='navbar'>
+        <div class="navbar-header">
+          <a href="/#/data-profile" class="navbar-brand">spkr</a>
+        </div>
+        <div class="collapse navbar-collapse" collapse="isCollapsed">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a focus href='/#/data-profile'>Data Profile</a></li>
+            <li><a href='/#/presentations'>Presentations</a></li>
+            <li><a href='/#/about'>About</a></li>
+            <li><a href='/#/logout'><small>Logout</small></a></li>
+          </ul>
+=======
+    <header class="container-fluid" ng-controller="IndexController">
+
+<!-- Start Navbar -->
+      <nav ng-if="loggedIn" class='navbar navbar-inverse navbar-fixed-top navbar-custom'>
         <div class="container-fluid">
           <div class="navbar-header"> <!-- Start Navbar Header -->
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -32,7 +48,11 @@
               <li><a href='/#/logout'><span class="glyphicon glyphicon-log-in"></span> Logout</a>
             </ul>
           </div>
+>>>>>>> client navbar on index.html
+        </div>
       </nav>
+<!-- End Navbar -->
+
     </header>
     <main>
       <div ng-view>
@@ -41,7 +61,7 @@
     <footer ng-hide="withBackground">
       <div class="powered-by">
         <div class="text">
-      powered by <a target="_blank" href="https://github.com/glorypod/">glory-pod</a>
+      powered by <a target="_blank" href="https://github.com/glorypod/">AW & The Rebasers</a>
         </div>
       </div>
     </footer>

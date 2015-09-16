@@ -11,7 +11,7 @@ h1, h2, h3, h4 {
   color: #555;
 }
 header .navbar {
-  margin-top: 0.5%;
+  margin-bottom: 1.0%;
   padding: 0.5% 1.5%;
 }
 
@@ -23,10 +23,13 @@ main {
   color: #DE7B59;
 }
 .navbar {
-  background-color: grey;
+  background-color: black;
+  font-family: ‘Times New Roman’, Times, serif;
 }
-.navbar a, .navbar-brand {
-  color: white;
+
+/*below is connected to all hyperlinks on the page*/
+a, .navbar-brand {
+  font-size:1.3em;  
 }
 
 .navbar a:focus, .navbar-brand:focus {
@@ -34,7 +37,8 @@ main {
   background-color: white;
   font-weight: bold;
 }
-.navbar a:hover, navbar-brand:hover{
+
+.navbar a:hover, .navbar-brand:hover{
   color: grey;
   background-color: white;
 }
@@ -65,6 +69,16 @@ main {
   padding-top: 3%;
   padding-right: 5%; 
   padding-bottom: 4%;*/
+}
+
+/********** Feedback Form **********/
+#feedback-holder{
+  text-align: center;
+  padding-right:4em;
+}
+
+#feedbackform-title{
+  font-size:5em;
 }
 
 /********** Landing **********/
