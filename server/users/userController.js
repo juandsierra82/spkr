@@ -33,7 +33,8 @@ module.exports = {
   },
 
   logout: function (req, res, next) {
-    
+    delete req.session.userId;
+    res.send(200);
   },
 
   signup: function (req, res, next) {
@@ -60,6 +61,7 @@ module.exports = {
         }
       })
       .then(function (user) {
+        req.session.userId = user._id;
         // create token to send back for auth
         var token = jwt.encode(user, 'secret');
         //the user id is included in the encoded token 
@@ -81,15 +83,16 @@ module.exports = {
     // then decode the token, which we end up being the user object
     // check to see if that user exists in the database
     var token = req.headers['x-access-token'];
-    if (!token) {
-      next(new Error('No token'));
-    } else {
-      var user = jwt.decode(token, 'secret');
+    // if (!token) {
+    //   next(new Error('No token'));
+    // } else {
+    //   var user = jwt.decode(token, 'secret');
       var findUser = Q.nbind(User.findOne, User);
-      findUser({username: user.username})
+      var userId = req.session.userId;
+      findUser({_id: userId})
         .then(function (foundUser) {
           if (foundUser) {
-            res.send(200);
+            next();
           } else {
             res.send(401);
           }
@@ -97,7 +100,6 @@ module.exports = {
         .fail(function (error) {
           next(error);
         });
-    }
   },
 
   //serves back all data for a given user
