@@ -11,18 +11,27 @@
   <body ng-class="{landing: withBackground}">
     <header  class="container-fluid" ng-controller="IndexController">
   <!-- Fix for SignUp on load bug: changed controller to AuthController for the navdiv -->
-      <nav ng-controller="AuthController" ng-if="loggedIn" class='navbar'>
-        <div class="navbar-header">
-          <a href="/#/data-profile" class="navbar-brand">spkr</a>
-        </div>
-        <div class="collapse navbar-collapse" collapse="isCollapsed">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a focus href='/#/data-profile'>Data Profile</a></li>
-            <li><a href='/#/presentations'>Presentations</a></li>
-            <li><a href='/#/about'>About</a></li>
-            <li><a href='/#/logout'><small>Logout</small></a></li>
-          </ul>
-        </div>
+      <nav ng-controller="AuthController" ng-if="loggedIn" class='navbar navbar-inverse navbar-fixed-top'>
+        <div class="container-fluid">
+          <div class="navbar-header"> <!-- Start Navbar Header -->
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="/#/data-profile" class="navbar-brand">SPKR</a>
+          </div> <!-- End Navbar Header -->
+          <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav">
+              <li><a href='/#/data-profile'>Data Profile</a>
+              <li><a href='/#/presentations'>Presentations</a>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href='/#/about'>About</a>
+              <li><a href='/#/logout'><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+            </ul>
+          </div>
       </nav>
     </header>
     <main>
@@ -32,7 +41,7 @@
     <footer ng-hide="withBackground">
       <div class="powered-by">
         <div class="text">
-      powered by <a target="_blank" href="https://github.com/glorypod/">glory-pod</a>
+      powered by <a target="_blank" href="https://github.com/Projectyr/">ProjecTyr</a>
         </div>
       </div>
     </footer>
