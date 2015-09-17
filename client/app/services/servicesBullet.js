@@ -7,7 +7,7 @@
     var makeBulletData = function (commData, userData) {
       var userData = userData.slice(1);
       // all the criteria list are the same.
-      var criteria = ['organization','clarity','volume','posture','preparation','visual aids','connection','questions','overall']
+      var criteria = ['overall', 'organization','clarity','volume','posture','preparation','visual aids','connection','questions']
       var bullet = [];
       for (var i = 0; i < criteria.length; i ++) {
 
@@ -39,6 +39,7 @@
         var max = 0;
         var total = 0;
         var average = 0;
+        var commCount = 0;
         commData.forEach(function(feed){
           var score = parseInt(feed.scores[i]);
           if (score > 100) {
