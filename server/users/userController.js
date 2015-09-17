@@ -41,6 +41,8 @@ module.exports = {
   signup: function (req, res, next) {
     var username  = req.body.username,
         password  = req.body.password,
+        //crating shared property on req on sign up
+        shared = req.body.shared,
         create,
         newUser;
 
@@ -56,7 +58,9 @@ module.exports = {
           create = Q.nbind(User.create, User);
           newUser = {
             username: username,
-            password: password
+            password: password,
+            //setting the shared property to false so user will be private on signup
+            shared: false
           };
           return create(newUser);
         }
