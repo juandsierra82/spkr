@@ -76,6 +76,10 @@ main {
   font-size:5em;
 }
 
+div.youtube {
+  text-align: center;
+}
+
 /********** Landing **********/
 
 body.landing {
