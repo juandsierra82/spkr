@@ -136,5 +136,24 @@ module.exports = {
                 feedbacks.unshift({username: username})
                 res.json(feedbacks)
               })
+  },
+//tested query for usernames and userid's which are private
+
+  serveUsers: function(req, res, next){
+    console.log('calling serve users')
+    var findPublic = Q.nbind(User.find, User)
+      
+      findPublic({shared:false}, '_id username')
+          .then(function (publicUsers) {
+        console.log('this should be an array of users', publicUsers)
+          if (publicUsers) {
+            res.json(publicUsers);
+          } else {
+            res.send(401);
+          }
+        })
+        .fail(function (error) {
+          next(error);
+        });    
   }
 };
