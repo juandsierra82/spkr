@@ -4,13 +4,12 @@
   "description": "",
   "main": "app.js",
   "engines": {
-    "node": "0.10.x",
-    "npm": "2.1.x"
+    "node": "4.0.0"
   },
   "scripts": {
     "test": "mocha specs/server",
     "start": "node server.js",
-    "postinstall": "./post-install.sh"
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
