@@ -7,6 +7,7 @@ angular.module('spkr', [
   'spkr.services',
   'spkr.index',
   'spkr.background',
+  'spkr.search',
   'ngRoute',
   'ui.bootstrap',
   'youtube-embed' 
