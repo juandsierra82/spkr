@@ -12,7 +12,6 @@
           $location.path('/')
         } 
       }, true);
-      
 
       // make bullet chart format data 
       // get all feedback data

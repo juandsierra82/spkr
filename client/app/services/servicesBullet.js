@@ -51,6 +51,7 @@
           commCount ++;
         })
         average = Math.round(total / commCount);
+        userAvg || (userAvg = 0);
         bullet[i] = {title: criteria[i], ranges:[min, max, 100], measures: [userAvg], markers: [average] };
       };
 
@@ -84,7 +85,7 @@
             });
 
       svg.call(tip);
-      
+
       svg.on("mouseover", tip.show)
         .on("mouseout", tip.hide)
 
