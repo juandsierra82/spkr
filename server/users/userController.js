@@ -123,5 +123,13 @@ module.exports = {
                 feedbacks.unshift({username: username})
                 res.json(feedbacks)
               })
+  },
+  servePublic: function(req, res, next){  
+    //find all users where 
+    User.find({share: true})
+      .populate('presentations')
+      .then(function(users) {
+        console.log(users);
+      })
   }
 };
