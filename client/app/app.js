@@ -73,6 +73,12 @@ angular.module('spkr', [
 
       }
     })
+
+    .when('/search', {
+      templateUrl: 'app/search/search-form.html',
+      controller: 'SearchController'
+    })
+    
     .otherwise('/data-profile')
     
 });
