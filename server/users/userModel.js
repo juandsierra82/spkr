@@ -23,6 +23,17 @@ var UserSchema = new mongoose.Schema({
   salt: String
 });
 
+//adds shared boolean value to schema; value is required and given upon sign up
+
+UserSchema.add({
+
+  shared: {
+    type: Boolean,
+    required: true
+  }
+
+})
+
 
 UserSchema.methods.comparePasswords = function (candidatePassword) {
   var defer = Q.defer();
