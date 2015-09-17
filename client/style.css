@@ -113,35 +113,37 @@ body.landing {
 /*********** Data-Profile **********/
 
 h1 {
-  border-bottom: 2px solid #d6e9c6;
-  margin: 0 25%;
   padding-bottom: 1%;
+  position: relative;
+  margin-top: 100px;
+}
+
+.user-greeting {
+  color: #337ab7
 }
 
 .data-profile h2, .data-profile h3, .data-profile h2, .data-profile h3, .data-profile h4 {
   text-transform: capitalize;
 }
-.user-greeting {
-  color: #337ab7
-}
+
 
 #fallbackMessage {
   width: 70%;
   text-align: justify;
   margin: 0 auto;
   font-size: 1.5em;
-  margin-top: 5%;
+  margin-top: 1%;
   line-height: 200%;
 }
 #fallbackMessage h2 {
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   color: #337ab7;
   font-style: italic;
 }
 
 #fallbackMessage p {
   width: 60%;
-  margin: 1% auto;
+  margin: 0.5% auto;
 }
 
 /************ Presentations ***********/
