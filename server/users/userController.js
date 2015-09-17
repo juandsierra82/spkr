@@ -3,6 +3,7 @@ var User = require('./userModel.js'),
     jwt  = require('jwt-simple'),
     mongoose = require('mongoose'),
     Presentation  = require('../presentations/presentationModel.js');
+var Feedbacks = require('../feedback/feedbackModel.js');
 
 module.exports = {
   login: function (req, res, next) {
@@ -100,6 +101,14 @@ module.exports = {
         .fail(function (error) {
           next(error);
         });
+  },
+
+  // serve all community data
+  serveCommData: function(req, res, next) {
+    Feedbacks.find()
+      .then(function(feedbacks){
+        res.json(feedbacks);
+      })
   },
 
   //serves back all data for a given user
