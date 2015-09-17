@@ -7,6 +7,7 @@ angular.module('spkr', [
   'spkr.services',
   'spkr.index',
   'spkr.background',
+  'spkr.preferences',
   'ngRoute',
   'ui.bootstrap',
   'youtube-embed' 
@@ -62,6 +63,11 @@ angular.module('spkr', [
     .when('/data-profile', {
       templateUrl: 'app/homepage/homepage.html',
       controller: 'HomepageController'
+    })
+
+    .when('/preferences', {
+      templateUrl: 'app/preferences/preferences.html',
+      controller: 'PreferencesController'
     })
     
     .when('/logout', {
