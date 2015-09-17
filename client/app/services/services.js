@@ -68,6 +68,33 @@ angular.module('spkr.services', [])
     getAllData: getAllData
   };
 })
+// this is a minor change to how getAllData works based off of the user selected by the search
+.factory('SearchService', function ($http, $location, $window) {
+  var getAllData = function(userid) {
+    return $http({
+      method: 'GET',
+      url: 'api/users/' + userid,
+    }).then(function(res){
+      return res.data;
+    })
+  };
+
+  var getPublic = function() {
+    console.log('Getting the public users');
+    return $http({
+      method: 'GET',
+      url: 'api/users/public'
+    }).then(function(res){
+      return res.data;
+    })
+  };
+
+  return {
+    getAllData: getAllData,
+    getPublic: getPublic
+  };
+})
+
 // factory for feedback form 
 
 .factory('FeedbackService', function ($http, $location, $window) {

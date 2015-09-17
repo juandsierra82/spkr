@@ -2,11 +2,48 @@
   or in the dashboard -->
 
 <div class="container" id="search-form-holder" ng-controller="SearchController">
-  <br><br><br><br>
+  <br><br>
   <h1 id="search-title">Search</h1>
   <div class="row search-inner-wrapper">
-    <div class="col-md-1">
-      <input id="search" type="text" ng-model="possible.username" />
+    <div class="col-lg-4 col-lg-offset-4">
+      <form name="searchForm" class="input-group" ng-submit="search()">
+        <input id="search" ng-keyup="match(possible.username); event = $event" bs-options="user.username for user in matched" placeholder="Enter user" bs-typeahead type="text" class="form-control" ng-model="possible.username" />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Search</button>
+        </span>
+      </form>
+        <p>searchForm dirty: {{searchForm.$dirty}}</p>
+        <p>matched: {{matched}}</p>
+        <p>event: {{event.keyCode}}</p>
+    </div> <!-- /.col-lg-4 -->
+  </div> <!-- /.row -->
+                <!-- hidden table that will only show when a search is submitted -->
+  <div class="container-fluid" ng-show="searched">
+    <div class="row">
+      <div id="user" class="col-md-6">
+        <h3>User Placeholder</h3>
+        <div id="userFallbackMessage">
+
+        </div>
+
+
+        <h3 id='date'></h3>
+        <div id='dateChart'>
+          
+        </div>
+        <h3 id='skill'>
+        
+        </h3>
+        <div id='skillChart' class="container">
+        
+        </div>
+      </div> <!-- /#user -->
+      <div id="searchMatch" class="col-md-6">
+        <h3>searchMatch Placeholder</h3>
+        <div></div>
+      </div>
+                <!-- left column will hold user, right column will hold search match -->
+                <!--  each column will need a fallback message if no presentations have been rated -->
     </div>
   </div>
-</div>\
+</div>
