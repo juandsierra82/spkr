@@ -59,13 +59,25 @@ angular.module('spkr.services', [])
     })
   };
 
+  var getCommData = function(){
+    var userid = $window.localStorage.getItem('userid');
+    return $http({
+      method: 'GET',
+      url: 'api/users/comm/' + userid,
+    }).then(function(res){
+      console.log("service get Comm data: ", res.data)
+      return res.data;
+    })
+  };
+
 // this is standard to return an object of these factory functions
   return {
     login: login,
     signup: signup,
     isAuth: isAuth,
     signout: signout,
-    getAllData: getAllData
+    getAllData: getAllData,
+    getCommData: getCommData
   };
 })
 // factory for feedback form 
