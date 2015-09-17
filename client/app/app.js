@@ -69,7 +69,7 @@ angular.module('spkr', [
       controller: 'AuthController',
       resolve:{ function (Auth){
         Auth.signout();
-      }
+        }
 
       }
     })
