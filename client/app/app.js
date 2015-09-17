@@ -73,6 +73,6 @@ angular.module('spkr', [
 
       }
     })
-    .otherwise('/')
+    .otherwise('/data-profile')
     
 });
