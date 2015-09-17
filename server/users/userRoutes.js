@@ -7,5 +7,8 @@ module.exports = function (app) {
   app.post('/signup', userController.signup);
   app.get('/logout', userController.checkAuth, userController.logout);
   app.get('/:id', userController.checkAuth, userController.serveData);
-  
+  //server path for search
+  app.get('/search', userController.checkAuth, userController.serveUsers)
 };
+
+
