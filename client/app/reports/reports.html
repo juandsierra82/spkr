@@ -1,12 +1,13 @@
 <div class="reports" ng-model="users">
   <h2>Performance Report</h2>
+  <h3 class="reportsFallback" ng-if="pres.length < 2">
+    You have no presentation to compare!
+  </h3>
 
   <div id="commBulletChart" class="col-md-9 col-sm-12">
   </div>
+  
   <div class="col-md-3 col-sm-12">
-    <h3 class="reportsFallback" ng-if="pres.length < 2">
-      You have no presentation to compare!
-    </h3>
     <div class="reportsOptions">
       <div class="btn-group preSelect" ng-if="pres.length > 1">
         <label>Select presentation to compare</label>
