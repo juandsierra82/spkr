@@ -36,7 +36,18 @@
 					<input name="youtube" id="youtube" type="url" ng-model="presentation.youtube" placeholder="Optional Youtube Url"/>
 					<span class="error" ng-hide="myForm.youtube.$valid">Please enter a valid url beginning with http://</span>
 				</div>
+
 				<input type="submit" class="btn btn-primary" value="Create Form"/>
+			</form>
+			<!-- 				test for radio button updating db
+ -->	
+ 			<form name="pubForm" ng-controller="SettingsController" ng-submit="submit(user)">
+ 			<div class="form-group">
+ 				<label for="public">Public</label>
+ 				True<input name="public" class="public" type="radio" ng-model="user.shared"/></br>
+ 				False <input name="public" class="public" type="radio" ng-model="user.shared"/></br>
+				</div>
+				<input type="submit" class="btn btn-primary" value="Submit"/>
 			</form>
 		</div>
 
