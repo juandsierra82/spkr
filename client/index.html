@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body ng-class="{landing: withBackground}">
-    <header  class="container-fluid" ng-controller="IndexController">
+    <header  class="container-fluid" ng-controller="BackgroundController">
   <!-- Fix for SignUp on load bug: changed controller to AuthController for the navdiv -->
       <nav ng-controller="AuthController" ng-if="loggedIn" class='navbar navbar-inverse navbar-fixed-top'>
         <div class="container-fluid">

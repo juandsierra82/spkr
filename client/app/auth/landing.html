@@ -1,10 +1,9 @@
 <div id="landing" class="container-fluid">
 	<div class="row>">
 		<div class="landing-heading">
-	    <p class="greeting">Welcome</p>
 			<h1 id="spkr">SPKR</h1>
 		</div>
-	<div class="row">
+	<div class="row" ng-if="!loggedIn">
 	    <a type="button" class="btn btn-danger btn-lg" href="/#/login">Login</a>
 	    <a type="button" class="btn btn-danger btn-lg" href="/#/signup">Signup</a>
   </div>
