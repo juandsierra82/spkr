@@ -607,15 +607,13 @@ div.reportsOptions {
 .bullet .range.s0 { fill: #eee; }
 .bullet .range.s1 { fill: #ddd; }
 .bullet .range.s2 { fill: #ccc; }
-.bullet .measure.s0 { fill: lightsteelblue; }
-.bullet .measure.s0.below { fill: red; }
+.bullet .measure.s0 { fill: #9AC361; }
+.bullet .measure.s0.below { fill: #AA5585; }
 
 .bullet .title { 
   display: block;
   font-size: 14px; font-weight: bold; 
 }
-.bullet .subtitle { fill: #999; }
-
 
 #commBulletChart .bullet {
   padding-left: 120px;

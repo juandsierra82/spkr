@@ -92,11 +92,6 @@
         .attr("class", "title")
         .text(function(d){ return d.title; });
 
-      title.append("text")
-        .attr("class", "subtitle")
-        .attr("dy", "1em")
-        .text(function(d) { return d.title; });
-
     };
     
     return {

@@ -13,6 +13,32 @@
         } 
       }, true);
 
+      $scope.preSelect = function(select) {
+        $scope.pre = select;
+        if ($scope.pre === "Overall"){
+          $scope.preData = $scope.userData;
+        } else {
+          $scope.preData = [$scope.userData[$scope.presObj[$scope.pre]]];  
+          console.log("preData", $scope.preData)     
+        }
+        $scope.init();
+      };
+
+      $scope.baseSelect = function(base) {
+        $scope.base = base;
+        if ($scope.base.indexOf("Me") > -1) {
+          $scope.baseData = $scope.userFeeds;   
+        } else {
+          $scope.baseData = $scope.commData;
+        }
+        $scope.init();        
+      }
+
+      $scope.init = function() {
+        $scope.bullet = Bullet.makeBulletData($scope.baseData, $scope.preData);
+        Bullet.makeBulletChart($scope.bullet);
+      }
+
       // make bullet chart format data 
       // get all feedback data
       Auth.getCommData()
