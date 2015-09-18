@@ -8,7 +8,6 @@ body, html {
 
 h1, h2, h3, h4 {
 	text-align: center;
-  color: #555;
 }
 
 header .navbar {
@@ -159,6 +158,10 @@ h1 {
   width: 95%;
 }
 
+.error {
+  color: red;
+}
+
 .presentation-table {
   padding-left: 0%;
 }
@@ -246,13 +249,24 @@ path {
 }
 
 .form-meta h2, .previous-presentation h2 {
-  font-size: 2.0em;
-  font-style: italic;
-  color: rgb(61, 159, 188);
+  color: black;
+  font-weight: bold;
+}
+
+.form-meta h4, .previous-presentation h4 {
+  color: black;
+  font-weight: bold;
 }
 
 .form-meta .data, .previous-presentation .data {
   text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #764b8e;
+}
+
+.previous-presentation span.title {
+  color: #00caca;
   font-size: 1.5em;
 }
 
