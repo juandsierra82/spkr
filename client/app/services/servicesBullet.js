@@ -54,7 +54,7 @@
 
     var makeBulletChart = function(data) {
       var margin = {top: 5, right: 40, bottom: 20, left: 120};
-      var width = 1000 - margin.left - margin.right;
+      var width = 900 - margin.left - margin.right;
       var height = 50 - margin.top - margin.bottom;
       var series = [{"Min":10, "Max":10, "Avg":10, "Me":10}];
 
