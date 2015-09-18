@@ -50,6 +50,10 @@ angular.module('spkr', [
       controller: 'FeedbackController'
     })
 
+    .when('/preferences', {
+      templateUrl: 'app/preferences/preferences.html'
+    })
+
     .when('/presentations', {
       templateUrl: 'app/presentations/presentations.html'
     })
