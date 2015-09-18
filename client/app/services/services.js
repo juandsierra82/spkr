@@ -65,7 +65,6 @@ angular.module('spkr.services', [])
       method: 'GET',
       url: 'api/users/comm/' + userid,
     }).then(function(res){
-      console.log("service get Comm data: ", res.data)
       return res.data;
     })
   };

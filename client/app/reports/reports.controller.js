@@ -23,10 +23,27 @@
           // get user data
           Auth.getAllData()
             .then(function(data){
-              $scope.bullet = Bullet.makeBulletData(commData, data);
-              Bullet.makeBulletChart($scope.bullet);
+              $scope.commData = commData;
+              $scope.userData = data.slice(1);
+              $scope.pres = ['Overall'];
+              $scope.presObj = {};
+              $scope.userFeeds = [];
+              $scope.userData.forEach(function(item, i){
+                if (item.feedbacks && item.feedbacks.length > 0){
+                  $scope.pres.push(item.title);
+                  var temp = item.feedbacks.map(function(item){
+                    return item;
+                  }); 
+                  $scope.userFeeds = $scope.userFeeds.concat(temp);
+                  $scope.presObj[item.title] = i;
+                }
+              });
+              $scope.preData = $scope.userData;
+              $scope.baseData = $scope.commData;
+              $scope.init();
             });
         });
+
   }
 
 }) ()

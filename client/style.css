@@ -568,13 +568,37 @@ input:-moz-placeholder {
 /**/
 /* bullet chart css*/
 /**/
+.reports {
+  margin: 50px;
+  margin-top: 100px;
+}
+
+.reports h2{
+  font-weight: bold;
+}
+
+div.reportsOptions {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.reports div.btn-group {
+  text-align: center;
+  width: 300px;
+}
+
+.reports .reportsFallback {
+  margin-top: 30px;
+  color: red;
+}
+
 #commBulletChart {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
-  margin-top: 70px;
   padding-top: 20px;
   position: relative;
-  width: 800px;
+  width: 1000px;
+  margin-top: 20px;
 }
 
 .bullet { font: 10px sans-serif; }
@@ -603,7 +627,7 @@ input:-moz-placeholder {
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 2px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 /* Creates a small triangle extender for the tooltip */
