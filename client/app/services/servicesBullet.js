@@ -4,10 +4,10 @@
   .factory("Bullet", Bullet);
 
   function Bullet () {
+
     var makeBulletData = function (commData, userData) {
-      var userData = userData.slice(1);
       // all the criteria list are the same.
-      var criteria = ['overall', 'organization','clarity','volume','posture','preparation','visual aids','connection','questions']
+      var criteria = ['organization','clarity','volume','posture','preparation','visual aids','connection','questions', 'overall']
       var bullet = [];
       for (var i = 0; i < criteria.length; i ++) {
 
@@ -19,20 +19,14 @@
         userData.forEach(function(pre) {
           var preTotal = 0;
           if (pre.feedbacks && pre.feedbacks.length > 0) {
-            preFeedCount ++;
             pre.feedbacks.forEach(function(userFeed) {
-              preTotal += parseInt(userFeed.scores[i]);
+              preFeedCount ++;
+              userTotal += parseInt(userFeed.scores[i]);
             })
-
-            var preScoreAvg = Math.round(preTotal / pre.feedbacks.length);
-
-            preAvg.push({preId: pre._id, preTitle: pre.title, preScoreAvg: preScoreAvg});
-
-            userTotal += preScoreAvg;
           }
         });
 
-        userAvg = userTotal / preFeedCount;
+        userAvg = Math.round(userTotal / preFeedCount);
         
         // get min/max/average of all feedbacks
         var min = 100;
@@ -54,20 +48,21 @@
         userAvg || (userAvg = 0);
         bullet[i] = {title: criteria[i], ranges:[min, max, 100], measures: [userAvg], markers: [average] };
       };
-
+      bullet = bullet.slice(bullet.length-1).concat(bullet.slice(0, bullet.length-1))
       return bullet;
     };
 
     var makeBulletChart = function(data) {
-      console.log("makeBulletChart data", data)
       var margin = {top: 5, right: 40, bottom: 20, left: 120};
-      var width = 800 - margin.left - margin.right;
+      var width = 1000 - margin.left - margin.right;
       var height = 50 - margin.top - margin.bottom;
+      var series = [{"Min":10, "Max":10, "Avg":10, "Me":10}];
 
       var chart = d3.bullet()
             .width(width)
             .height(height);
-
+      d3.select("#commBulletChart").html("");
+      
       var svg = d3.select("#commBulletChart").selectAll("svg")
             .data(data).enter().append("svg")
             .attr("class", "bullet")
@@ -81,13 +76,13 @@
             .attr("class", "d3-tip")
             .offset([-10, 0])
             .html(function (d) {
-              return "<strong>You:</strong> <span>" + d.measures[0] + "; </span>" + "<strong> Avg:</strong> <span>" + d.markers[0] + "; </span>"+ "<strong> Min:</strong> <span>" + d.ranges[0] + "; </span>" + "<strong>  Max:</strong> <span>" + d.ranges[1] + "</span>"
+              return "<strong>Me:</strong> <span>" + d.measures[0] + "; </span>" + "<strong> Avg:</strong> <span>" + d.markers[0] + "; </span>"+ "<strong> Min:</strong> <span>" + d.ranges[0] + "; </span>" + "<strong>  Max:</strong> <span>" + d.ranges[1] + "</span>"
             });
-
+            
       svg.call(tip);
 
       svg.on("mouseover", tip.show)
-        .on("mouseout", tip.hide)
+        .on("mouseout", tip.hide);
 
       var title = svg.append("g")
             .style("text-anchor", "end")
@@ -96,11 +91,6 @@
       title.append("text")
         .attr("class", "title")
         .text(function(d){ return d.title; });
-
-      title.append("text")
-        .attr("class", "subtitle")
-        .attr("dy", "1em")
-        .text(function(d) { return d.title; });
 
     };
     

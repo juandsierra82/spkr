@@ -114,10 +114,26 @@ d3.bullet = function() {
       var format = tickFormat || x1.tickFormat(8);
 
       // Update the tick groups.
+      var ticksValue = ['0', d.ranges[0], d.ranges[1], d.measures[0], d.markers[0]];
+      var ticksText = ['', 'Min:', 'Max:', 'Me:', 'Avg:']
+
+      var temp = ticksValue.slice();
+      temp.sort();
+
+      // prevent overllap on ticks
+      for (var i = 0; i < ticksValue.length; i ++) {
+        if (temp[i+1] - temp[i] < 4) {
+          var index = ticksValue.indexOf(temp[i]);
+          ticksValue.splice(index, 1);
+          ticksText.splice(index, 1);
+        }
+      }
+
       var tick = g.selectAll("g.tick")
-          .data(x1.ticks(8), function(d) {
-            return this.textContent || format(d);
-          });
+            .data(ticksValue);
+          // .data(x1.ticks(8), function(d) {
+          //   return this.textContent || format(d);
+          // });
 
       // Initialize the ticks with the old scale, x0.
       var tickEnter = tick.enter().append("g")
@@ -132,8 +148,13 @@ d3.bullet = function() {
       tickEnter.append("text")
           .attr("text-anchor", "middle")
           .attr("dy", "1em")
-          .attr("y", height * 7 / 6)
-          .text(format);
+          .attr("y", function(d){
+            return (height * 7 / 6 + ticksValue.indexOf(d));
+          })
+          .text(function(d){
+            format = ticksText[ticksValue.indexOf(d)] || '';
+            return format + d;
+          });
 
       // Transition the entering ticks to the new scale, x1.
       tickEnter.transition()
