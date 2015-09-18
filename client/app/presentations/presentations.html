@@ -16,7 +16,7 @@
 				<div class="form-group">
 					<label for="title">Presentation Title: </label>
 					<input id="title" name="title" type="text" ng-model="presentation.title" placeholder="Enter Title" required/>
-					<span class="error" ng-show="myForm.title.$error.required && createForm.title.$dirty">Please enter a title</span>
+					<span class="error" ng-show="myForm.title.$error.required && myForm.title.$dirty">Please enter a title</span>
 				</div>
 <!-- 				date validation added
  -->				<div class="form-group">
@@ -28,7 +28,7 @@
  -->				<div class="form-group">
 					<label for="expiration">Feedback Expiration Date: </label>
 					<input name="expiration" id="expiration" class="date" type="date"  ng-model="presentation.expiration" required=''/>
-					<span class="error" ng-show="myForm.expiration.$error.required && createForm.expiration.$dirty">Please enter a date for the expiration of the form</span>
+					<span class="error" ng-show="myForm.expiration.$error.required && myForm.expiration.$dirty">Please enter a date for the expiration of the form</span>
 				</div>
 <!-- 				Start of YouTube Add In changes -->
 				<div class="form-group">
@@ -36,7 +36,7 @@
 					<input name="youtube" id="youtube" type="url" ng-model="presentation.youtube" placeholder="Optional Youtube Url"/>
 					<span class="error" ng-hide="myForm.youtube.$valid">Please enter a valid url beginning with http://</span>
 				</div>
-				<input type="submit" class="btn btn-primary" value="Create Form"/>
+				<input type="submit" class="btn btn-primary" value="Create Form" ng-disabled="myForm.$invalid"/>
 			</form>
 		</div>
 

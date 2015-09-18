@@ -158,6 +158,10 @@ h1 {
   width: 95%;
 }
 
+.error {
+  color: red;
+}
+
 .presentation-table {
   padding-left: 0%;
 }
