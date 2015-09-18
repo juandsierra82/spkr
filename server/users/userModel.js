@@ -34,6 +34,32 @@ UserSchema.add({
 
 })
 
+//adding items from settings page other than boolean
+
+UserSchema.add({
+
+  firstname: {
+    type: String,
+    required: false
+  },
+
+  lastname: {
+    type: String,
+    required: false
+  },
+
+  email: {
+    type: String,
+    required: false
+  },
+
+  organization: {
+    type: String,
+    required: false
+  }
+
+})
+
 
 UserSchema.methods.comparePasswords = function (candidatePassword) {
   var defer = Q.defer();

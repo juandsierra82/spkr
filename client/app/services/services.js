@@ -132,9 +132,10 @@ angular.module('spkr.services', [])
       console.log('in Set#updateUser', settings);
       return $http({
         method: 'POST',
-        url: 'api/settings/',
+        url: 'api/users/settings/',
         data: settings
       }).then(function (res){
+        console.log(res.data)
         return res.data
       })
 

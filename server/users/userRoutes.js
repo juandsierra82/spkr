@@ -10,8 +10,8 @@ module.exports = function (app) {
   //server path for search
   app.get('/search', userController.checkAuth, userController.serveUsers)
   app.get('/comm/:id', userController.checkAuth, userController.serveCommData);
-  // app.post('/settings', userController.checkAuth,
-  // 	userController.upDate)
+  app.post('/settings', userController.checkAuth,
+  	userController.updateSettings)
 
 };
 
