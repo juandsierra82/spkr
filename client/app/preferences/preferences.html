@@ -1,57 +1,37 @@
-<div id="ctrl-exmpl" ng-controller="SettingsController2">
-<br><br><br><br>
-<div class="container preferences-page">
-  <div class="row">
+<div id="ctrl-exmpl" ng-controller="SettingsController">
+  <br><br><br><br>
+  <div class="container preferences-page">
+    <div class="row">
       <h2>User Preferences</h2>
-      <form action="" method="">
+      <form ng-submit="subPub(settings)">
         <div class="form-group">
           <label for="">First Name:</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" id="firstName">
-          </div>
+          <input type="text" class="form-control" id="firstName">
         </div>
         <div class="form-group">
-          <br><label for="">Last Name:</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" id="lastName">
-          </div>
+          <label for="">Last Name:</label>
+          <input type="text" class="form-control" id="lastName">
         </div>
         <div class="form-group">
-          <br><label for="">Email Address</label>
-          <div class="col-xs-4">
-            <input type="email" class="form-control" id="email">
-          </div>
+          <label for="">Email Address:</label>
+          <input type="email" class="form-control" id="email">
         </div>
         <div class="form-group">
-          <br><label for="">City</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" id="city">
-        </div>
+          <label for="">City:</label>
+          <input type="text" class="form-control" id="city">
         <div class="form-group">
-          <br><label for="">Organization</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" id="organization">
-          </div>
+          <label for="">Organization:</label>
+          <input type="text" class="form-control" id="organization">                  
         </div>
-        <br><label for="">Publically-Available Profile?</label>
-          <div class="radio">
-            <label>
-              <input type="radio" name="optionsRadios" id="profile-public" value="public" checked>
-              Public
-              </label>
-          </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="optionsRadios" id="profile-private" value="private">
-            Private
-          </label>
-        </div> 
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Submit</button>
-          </div>
-        </div>         
-      </form>
+        <div class="form-group" ng-controller="SettingsController">
+            <form ng-submit="subPub(settings)">
+            <div class="form-group">
+            Check to make profile public<input type="checkbox" ng-model="settings.shared"/></br>
+            <input type="submit" class="btn btn-primary" value="Change Settings"/>        
+            </form>
+        </div>
     </div>
+      </form>
+    </div>         
   </div>
 </div>
