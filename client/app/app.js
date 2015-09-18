@@ -5,8 +5,8 @@ angular.module('spkr', [
   'spkr.previous-pres',
   'spkr.presentations',
   'spkr.services',
-  'spkr.index',
   'spkr.background',
+  'spkr.reports',
   'ngRoute',
   'ui.bootstrap',
   'youtube-embed',
@@ -63,6 +63,11 @@ angular.module('spkr', [
     .when('/data-profile', {
       templateUrl: 'app/homepage/homepage.html',
       controller: 'HomepageController'
+    })
+
+    .when('/reports', {
+      templateUrl: 'app/reports/reports.html',
+      controller: 'ReportsController'
     })
     
     .when('/logout', {

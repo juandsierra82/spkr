@@ -59,13 +59,24 @@ angular.module('spkr.services', [])
     })
   };
 
+  var getCommData = function(){
+    var userid = $window.localStorage.getItem('userid');
+    return $http({
+      method: 'GET',
+      url: 'api/users/comm/' + userid,
+    }).then(function(res){
+      return res.data;
+    })
+  };
+
 // this is standard to return an object of these factory functions
   return {
     login: login,
     signup: signup,
     isAuth: isAuth,
     signout: signout,
-    getAllData: getAllData
+    getAllData: getAllData,
+    getCommData: getCommData
   };
 })
 // factory for feedback form 
@@ -114,6 +125,24 @@ angular.module('spkr.services', [])
       createPresentation: createPresentation,
       getData: getData
     };
+})
+//factory for client insert of user changes
+.factory('Set', function ($http, $location, $window){
+    var updateUser = function(settings){
+      console.log('in Set#updateUser', settings);
+      return $http({
+        method: 'POST',
+        url: 'api/settings/',
+        data: settings
+      }).then(function (res){
+        return res.data
+      })
+
+    }
+  return {
+    updateUser: updateUser
+  }
+
 })
 
 
