@@ -1,65 +1,57 @@
 <div id="ctrl-exmpl" ng-controller="SettingsController2">
 <br><br><br><br>
-<div class="container">
+<div class="container preferences-page">
   <div class="row">
-    <div class="col-xs-12">
-      <h2>Basic Form</h2>
+      <h2>User Preferences</h2>
       <form action="" method="">
         <div class="form-group">
-          <label for="">First Name</label>
-          <input type="text" class="form-control" id="firstName">
+          <label for="">First Name:</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="firstName">
+          </div>
         </div>
         <div class="form-group">
-          <label for="">Last Name</label>
-          <input type="text" class="form-control" id="lastName">
+          <br><label for="">Last Name:</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="lastName">
+          </div>
         </div>
         <div class="form-group">
-          <label for="">Email Address</label>
-          <input type="email" class="form-control" id="email">
+          <br><label for="">Email Address</label>
+          <div class="col-xs-4">
+            <input type="email" class="form-control" id="email">
+          </div>
         </div>
         <div class="form-group">
-          <label for="">City</label>
-          <input type="text" class="form-control" id="city">
+          <br><label for="">City</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="city">
         </div>
         <div class="form-group">
-          <label for="">Publically-Available Profile?</label>
-          <label class="checkbox-inline">
-          <input type="radio" name="optionsRadio" id="radio-public"
-            value="public" checked>
-          Public
-          <input type="radio" name="optionsRadio2" id="radio-private"
-            value="private">
-          Private
-        </label>
+          <br><label for="">Organization</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="organization">
+          </div>
         </div>
+        <br><label for="">Publically-Available Profile?</label>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="profile-public" value="public" checked>
+              Public
+              </label>
+          </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="profile-private" value="private">
+            Private
+          </label>
+        </div> 
         <div class="form-group">
-          <input type="submit" id="submit" class="btn-default" value="submit"/>
-        </div>
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>         
       </form>
     </div>
   </div>
-
 </div>
-
-
-<!--  needs a true/false radio button for public/private preferences
-      .shared radio button property
-      scope.users is on the controller side     
--->
-
-<!--   <label>Name: <input type="text" ng-model="name"/></label>
-  <button ng-click="greet()">greet</button><br/>
-  Contact:
-  <ul>
-    <li ng-repeat="contact in contacts">
-      <select ng-model="contact.type" id="select_{{$index}}">
-         <option>phone</option>
-         <option>email</option>
-      </select>
-      <input type="text" ng-model="contact.value" aria-labelledby="select_{{$index}}" />
-      <button ng-click="clearContact(contact)">clear</button>
-      <button ng-click="removeContact(contact)">X</button>
-    </li>
-    <li>[ <button ng-click="addContact()">add</button> ]</li>
- </ul>
-</div> -->
