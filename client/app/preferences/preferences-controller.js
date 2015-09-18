@@ -2,4 +2,37 @@ angular.module('spkr.preferences', [])
 	.controller('PreferencesController', function ($scope, $window, $location, Auth, Vis) {
 
 	});
-	
+
+function PreferencesController($scope) {
+	$scope.name = "John Smith";
+	$scope.contacts = [
+	{type: 'phone', value: '408-555-1212'},
+	{type: 'email', value: john.smith@example.org}
+	];
+
+	$scope.addContact = function() {
+		$scope.contacts.push({type:'email', value:'yourname@example.org'});
+	};
+
+	$scope.removeContact = function(contactToRemove) {
+		var index = $scope.contacts.indexOf(contactToRemove);
+		$scope.contacts.splice(index,1);
+	};
+
+	$scope.clearContact = function(contact) {
+		contact.type = 'phone';
+		contact.value = '';
+	};
+}
+
+
+
+
+
+
+
+
+
+
+
+
