@@ -5,7 +5,6 @@ angular.module('spkr', [
   'spkr.previous-pres',
   'spkr.presentations',
   'spkr.services',
-  'spkr.index',
   'spkr.background',
   'spkr.reports',
   'ngRoute',
