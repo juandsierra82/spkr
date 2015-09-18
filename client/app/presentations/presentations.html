@@ -38,6 +38,16 @@
 				</div>
 				<input type="submit" class="btn btn-primary" value="Create Form" ng-disabled="myForm.$invalid"/>
 			</form>
+			<!-- 				test for radio button updating db
+ -->	
+ 			<form name="pubForm" ng-controller="SettingsController" ng-submit="submit(user)">
+ 			<div class="form-group">
+ 				<label for="public">Public</label>
+ 				True<input name="public" class="public" type="radio" ng-model="user.shared"/></br>
+ 				False <input name="public" class="public" type="radio" ng-model="user.shared"/></br>
+				</div>
+				<input type="submit" class="btn btn-primary" value="Submit"/>
+			</form>
 		</div>
 
 		<div class="presentation-table col-md-9 col-sm-12">
