@@ -54,6 +54,10 @@ main {
   padding-top: 5%;
 }
 
+.about h2 {
+  font-weight: bold;
+}
+
 /********** Footer **********/
 footer {
   clear:both;
@@ -119,9 +123,11 @@ body.landing {
 
 /*********** Data-Profile **********/
 
-h1 {
+.data-profile h2 {
+  margin-top: 100px;
   padding-bottom: 1%;
   position: relative;
+  font-weight: bold;
 }
 
 .user-greeting {
@@ -154,7 +160,7 @@ h1 {
 
 /************ Presentations ***********/
 .presentations-inner-wrapper {
-  margin-top: 5%;
+  margin-top: 2%;
   width: 95%;
 }
 
@@ -166,9 +172,11 @@ h1 {
   padding-left: 0%;
 }
 
-.presentations h1 {
-  margin-bottom: 1%;
+.presentations h2 {
+  margin-top: 100px;
+  font-weight: bold;
 }
+
 #new-presentation{
 	width: 100%;
 	margin: 0 auto;
@@ -267,7 +275,6 @@ path {
 
 .previous-presentation span.title {
   color: #00caca;
-  font-size: 1.5em;
 }
 
 #presentation-feedback{
