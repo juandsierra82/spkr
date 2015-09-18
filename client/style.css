@@ -597,8 +597,11 @@ div.reportsOptions {
   margin: auto;
   padding-top: 20px;
   position: relative;
-  width: 1000px;
   margin-top: 20px;
+}
+
+svg g.innerChart {
+  display: none;
 }
 
 .bullet { font: 10px sans-serif; }

@@ -1,29 +1,31 @@
 <div class="reports" ng-model="users">
   <h2>Performance Report</h2>
-  <h3 class="reportsFallback" ng-if="pres.length < 2">
-    You have no presentation to compare!
-  </h3>
-  <div class="reportsOptions">
-    <div class="btn-group preSelect" ng-if="pres.length > 1">
-      <label>Select presentation to compare</label>
-      <button type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{pre ? pre : "Overall"}}
-      </button>
-      <ul class="dropdown-menu">
-        <li ng-repeat="pre in pres" ng-click="preSelect(pre)"><a>{{pre}}</a></li>
-      </ul>
-    </div>
-    <div class="btn-group preSelect" ng-if="pres.length > 1">
-      <label>Select benchmark</label>
-      <button type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         {{base ? base : "All Users"}}
-      </button>
-      <ul class="dropdown-menu">
-        <li ng-repeat="base in ['All Users', 'Only Me']" ng-click="baseSelect(base)"><a>{{base}}</a></li>
-      </ul>
-    </div>
-  <br>
 
-  <div id="commBulletChart">
+  <div id="commBulletChart" class="col-md-9 col-sm-12">
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <h3 class="reportsFallback" ng-if="pres.length < 2">
+      You have no presentation to compare!
+    </h3>
+    <div class="reportsOptions">
+      <div class="btn-group preSelect" ng-if="pres.length > 1">
+        <label>Select presentation to compare</label>
+        <button type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{pre ? pre : "Overall"}}
+        </button>
+        <ul class="dropdown-menu">
+          <li ng-repeat="pre in pres" ng-click="preSelect(pre)"><a>{{pre}}</a></li>
+        </ul>
+      </div>
+      <div class="btn-group preSelect" ng-if="pres.length > 1">
+        <label>Select benchmark</label>
+        <button type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           {{base ? base : "All Users"}}
+        </button>
+        <ul class="dropdown-menu">
+          <li ng-repeat="base in ['All Users', 'Only Me']" ng-click="baseSelect(base)"><a>{{base}}</a></li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
