@@ -8,6 +8,14 @@ angular.module('spkr.previous-pres', ['ngRoute'])
       }
     }, true);
 
+    Auth.getAllData()
+      .then(function(data){
+        $scope.presentations = data.slice(1);
+      })
+      .catch(function(error){
+        console.err(error)
+      });
+
     //get the data for this presentation
     Pres.getData($routeParams.id)
     .then(function(data){

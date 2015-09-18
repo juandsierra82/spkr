@@ -1,23 +1,39 @@
 <div class="container">
   <h1>Feedback Score Distribution</h1>
+
   <div class="row previous-presentation">
     <div class="col-md-12">
       <h2>Presentation Title: <span class="data title">{{title}}</span>
       </h2>
     </div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-4 col-sm-12">
       <h4>Date</h4>
       <div class="data">{{date | date : "mediumDate" }}</div>
     </div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-4 col-sm-12">
       <h4>Feedback Received</h4>
       <div class="data">{{feedbacks}}</div> 
     </div>
+
+    <div class="col-md-4 col-sm-12"> 
+      <div class="btn-group prePreSelect">
+        <h4>Select other presentation</h4>
+        <button type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           {{title}}
+        </button>
+        <ul class="dropdown-menu">
+          <li ng-repeat="pre in presentations">
+            <a href='{{"/#/presentations/history/" + pre._id}}'>{{pre.title}}</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
+
   <div class="row">
   	<div class="col-md-12">
 	  	<div id="distChart">
 	  	</div>
   	</div>
   </div>
+
 </div>
