@@ -127,6 +127,8 @@ angular.module('spkr.services', [])
     };
 })
 
+
+
 .factory('Vis', function ($http, $location, $window) {
 
   var homepageGraph = function(criteria, scoresData) {

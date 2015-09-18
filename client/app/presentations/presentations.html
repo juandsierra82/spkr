@@ -38,17 +38,18 @@
 				</div>
 				<input type="submit" class="btn btn-primary" value="Create Form" ng-disabled="myForm.$invalid"/>
 			</form>
-			<!-- 				test for radio button updating db
- -->	
- 			<form name="pubForm" ng-controller="SettingsController" ng-submit="submit(user)">
+			<!-- 				test for select button updating db
+ -->	<div class="container" ng-controller="SettingsController">
+ 			<form name="pubForm" ng-submit="subpub(settings)">
  			<div class="form-group">
- 				<label for="public">Public</label>
- 				True<input name="public" class="public" type="radio" ng-model="user.shared"/></br>
- 				False <input name="public" class="public" type="radio" ng-model="user.shared"/></br>
-				</div>
-				<input type="submit" class="btn btn-primary" value="Submit"/>
-			</form>
+ 				<tt>{{settings}}</tt></br>
+ 				<tt>{{settings.shared}}</tt></br>
+ 				Check to make profile public<input type="checkbox" ng-model="settings.shared"/></br>
+ 				<input type="submit" class="btn btn-primary" value="Change Settings"/>		
+		</form>
 		</div>
+
+	
 
 		<div class="presentation-table col-md-9 col-sm-12">
 			<table class="table table-striped table-responsive">
