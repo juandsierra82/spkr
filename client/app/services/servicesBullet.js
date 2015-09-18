@@ -61,21 +61,69 @@
       var chart = d3.bullet()
             .width(width)
             .height(height);
+
       d3.select("#commBulletChart").html("");
       
       var svg = d3.select("#commBulletChart").selectAll("svg")
             .data(data).enter().append("svg")
             .attr("class", "bullet")
             .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("tranform", "translate(" + margin.left + "," + margin.top + ")")
-            .call(chart);
+            .attr("height", height + margin.top + margin.bottom);
+
+      svg.append("g")
+        .attr("class", "bullet")
+        .attr("tranform", "translate(" + margin.left + "," + margin.top + ")")
+        .call(chart);
+
+      var xscale = d3.scale.linear()
+            .domain([0,100])
+            .range([0,800]);
+      var colors = ['steelblue', '#FFA500'];
+
+      var types;
+      svg.append("g")
+        .attr("class", "innerChart")
+        .attr("tranform", "translate(" + margin.left + "," + margin.top + ")")
+        .selectAll("rect")
+        .data(function(d){
+          types = ["Me", "Avg"];              
+          var typesData = [d.measures[0], d.markers[0]];
+          return typesData;
+        }).enter()
+        .append("rect")
+        .attr('height', 15)
+        .style('fill', function(d,i){
+          return colors[i];
+        })
+        .attr('width', function(d){return xscale(d)})
+        .attr("transform", function(d, i) {
+          return "translate(0," + (  16 * i + 3) + ")";
+        })
+
+      d3.selectAll(".innerChart")
+        .selectAll('text')
+        .data(function(d){
+          types = ["Me", "Avg"];              
+          var typesData = [d.measures[0], d.markers[0]];
+          return typesData;
+        }).enter()
+        .append('text')
+        .attr('height', 15)
+        .attr('x', function(d){return xscale(d) + 5;})
+        .attr("transform", function(d, i) {
+          return "translate(0," + (  17 * i + 13) + ")"
+        })
+        .text(function(d,i) {
+          return types[i] + ": " + d;
+        })
+        .style({'fill':'black','font-size':'12px'});
 
       var tip = d3.tip()
             .attr("class", "d3-tip")
             .offset([-10, 0])
             .html(function (d) {
+              types = ["Min", "Me", "Avg", "Max"]
+              typesData = [d.ranges[0], d.measures[0], d.markers[0], d.ranges[1]];
               return "<strong>Me:</strong> <span>" + d.measures[0] + "; </span>" + "<strong> Avg:</strong> <span>" + d.markers[0] + "; </span>"+ "<strong> Min:</strong> <span>" + d.ranges[0] + "; </span>" + "<strong>  Max:</strong> <span>" + d.ranges[1] + "</span>"
             });
             
@@ -83,6 +131,12 @@
 
       svg.on("mouseover", tip.show)
         .on("mouseout", tip.hide);
+
+      svg.on("click", function(){
+        $("g.bullet").toggle();
+        $("g.innerChart").toggle();
+
+      })
 
       var title = svg.append("g")
             .style("text-anchor", "end")
