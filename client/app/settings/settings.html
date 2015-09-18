@@ -1,0 +1,61 @@
+<div id="ctrl-exmpl" ng-controller="SettingsController">
+<br><br><br><br>
+<div class="container preferences-page">
+  <div class="row">
+      <h2>User Preferences</h2>
+      <form action="" method="" ng-submit="subPub(settings)">
+        <div class="form-group">
+<!--         first name option
+ -->          <label for="">First Name:</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="firstName" ng-model="settings.firstname">
+          </div>
+        </div>
+<!--     Last Name option
+ -->        <div class="form-group">
+          <br><label for="">Last Name:</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="lastName" ng-model="settings.lastname">
+          </div>
+        </div>
+<!--   e-mail address option
+ -->        <div class="form-group">
+          <br><label for="">Email Address</label>
+          <div class="col-xs-4">
+            <input type="email" class="form-control" id="email" ng-model="settings.email">
+          </div>
+        </div>
+<!--         City option
+ -->        <div class="form-group">
+          <br><label for="">City</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="city" ng-model="settings.city">
+        </div>
+<!--         organization option
+ -->        <div class="form-group">
+          <br><label for="">Organization</label>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" id="organization" ng-model="settings.organization">
+          </div>
+        </div>
+        <!--   public option
+ -->  
+        <br><label for="">Publically-Available Profile?</label>    
+        <div class="col-xs-4">
+        <div class="form-group">
+          Check to make profile public<input type="checkbox" ng-model="settings.shared"/></br>    
+        </div>
+        </div> 
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+<!--   submit changes          
+ -->            
+ <input type="submit" class="btn btn-primary" value="Change Settings"/>
+          </div>
+        </div>         
+      </div>
+      <pre>settings={{settings}}</pre>
+      </form>
+    </div>
+  </div>
+</div>

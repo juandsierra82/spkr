@@ -155,5 +155,39 @@ module.exports = {
         .fail(function (error) {
           next(error);
         });    
+  },
+
+  //toggles users public function
+
+  updateSettings: function(req, res, next){
+    console.log('calling update');
+
+    //field updated already populated for user
+    var shareOpt = req.body.shared;
+    //field inserted after settings page
+    var firstOpt = req.body.firstname;
+    var lastOpt = req.body.lastname;
+    var emailOpt = req.body.email;
+    var orgOpt = req.body.organization;
+    
+    var updateUser = Q.nbind(User.update, User);
+    var userId = req.session.userId;
+
+    updateUser({_id:userId}, {$set: 
+      {shared: shareOpt,
+       firstname: firstOpt,
+       lastname: lastOpt,
+       email: emailOpt,
+       organization: orgOpt 
+      }
+      })
+      .then(function (user){
+        if(!user){
+          res.send(401);
+        } else {
+          res.send(user);
+        }
+      })
+
   }
 };

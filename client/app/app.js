@@ -69,6 +69,11 @@ angular.module('spkr', [
       templateUrl: 'app/reports/reports.html',
       controller: 'ReportsController'
     })
+
+    .when('/settings', {
+      templateUrl: 'app/settings/settings.html',
+      controller: 'SettingsController'
+    })
     
     .when('/logout', {
       templateUrl: 'app/auth/landing.html',
