@@ -22,7 +22,7 @@
            {{title}}
         </button>
         <ul class="dropdown-menu">
-          <li ng-repeat="pre in presentations">
+          <li ng-repeat="pre in presentations | orderBy: '-date'" ng-if="pre.feedbacks.length > 0">
             <a href='{{"/#/presentations/history/" + pre._id}}'>{{pre.title}}</a></li>
         </ul>
       </div>

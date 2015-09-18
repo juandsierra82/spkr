@@ -130,7 +130,7 @@ angular.module('spkr.services', [])
 .factory('Vis', function ($http, $location, $window) {
 
   var homepageGraph = function(criteria, scoresData) {
-    
+    var scoresData = scoresData.slice(0,5)
     var dateColor = 'steelblue';
     var skillColor = ["red","green","orange","grey","purple","cyan","lightgreen","pink","maroon"];
 
