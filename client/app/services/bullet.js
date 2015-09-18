@@ -148,8 +148,13 @@ d3.bullet = function() {
       tickEnter.append("text")
           .attr("text-anchor", "middle")
           .attr("dy", "1em")
-          .attr("y", height * 7 / 6)
-          .text(format);
+          .attr("y", function(d){
+            return (height * 7 / 6 + ticksValue.indexOf(d));
+          })
+          .text(function(d){
+            format = ticksText[ticksValue.indexOf(d)] || '';
+            return format + d;
+          });
 
       // Transition the entering ticks to the new scale, x1.
       tickEnter.transition()
