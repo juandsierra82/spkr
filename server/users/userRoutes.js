@@ -8,5 +8,7 @@ module.exports = function (app) {
   app.get('/logout', userController.checkAuth, userController.logout);
   app.get('/:id', userController.checkAuth, userController.serveData);
   app.get('/comm/:id', userController.checkAuth, userController.serveCommData);
-  
+  // app.post('/settings', userController.checkAuth,
+  // 	userController.upDate)
+
 };

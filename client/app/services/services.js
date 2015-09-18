@@ -126,6 +126,24 @@ angular.module('spkr.services', [])
       getData: getData
     };
 })
+//factory for client insert of user changes
+.factory('Set', function ($http, $location, $window){
+    var updateUser = function(settings){
+      console.log('in Set#updateUser', settings);
+      return $http({
+        method: 'POST',
+        url: 'api/settings/',
+        data: settings
+      }).then(function (res){
+        return res.data
+      })
+
+    }
+  return {
+    updateUser: updateUser
+  }
+
+})
 
 .factory('Vis', function ($http, $location, $window) {
 
