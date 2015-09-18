@@ -1,6 +1,8 @@
 angular.module('spkr.presentations', [])
   .controller('PresentationsController', function ($scope, $window, $location, Auth, Pres) {
     
+    $scope.presentation = {};
+
     $scope.root = window.location.href.slice(0,window.location.href.lastIndexOf('/'));
     
     $scope.$watch(Auth.isAuth, function(authed) {
@@ -17,7 +19,7 @@ angular.module('spkr.presentations', [])
     document.getElementById('expiration').setAttribute('min', today);
 
     $scope.$watch(function(){return $scope.presentation.date}, function(){
-      document.getElementById('expiration').setAttribute('min', $scope.presentation.date.toISOString().split('T')[0]);
+      $scope.presentation.date && document.getElementById('expiration').setAttribute('min', $scope.presentation.date.toISOString().split('T')[0]);
     });
 
     $scope.submit = function(presentation){
